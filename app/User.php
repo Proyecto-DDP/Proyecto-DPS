@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'codigoUsuario', 'nombresUsuario', 'password', 'apellidosUsuario', 'edad', 'dui', 'cargo', 'telefono',
     ];
 
     /**
@@ -33,7 +33,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+    protected $table = 'Usuarios';
+    public $timestamps = false;
+    protected $primaryKey = 'codigoUsuario';
+    public $incrementing = false;
 }
