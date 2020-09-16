@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+import RegisterForm from './mascotasForm';
 
 function LoginForm() {
     return (
+        <Router>
         <div className="row mt-3">
             <div className="col-md-6"></div>
             <div className="col-md-6">
@@ -39,7 +42,8 @@ function LoginForm() {
                                 </div>
                                 <div className="col-md-4">
                                     <div className="form-check">
-                                        <a href="#">Registrarme</a>
+                                        <Link to="/register">Registrarme</Link>
+                                        <Route path="/register" component={RegisterForm}></Route>
                                     </div>
                                 </div>
                             </div>
@@ -56,6 +60,7 @@ function LoginForm() {
                 </div>
             </div>
         </div>
+        </Router>
     );
 }
 

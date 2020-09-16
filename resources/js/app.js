@@ -13,3 +13,5 @@ require('./bootstrap');
  */
 
 require('./components/loginForm');
+
+require('./components/mascotasForm');

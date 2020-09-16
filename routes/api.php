@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('mascota/list', 'API\MascotasController@get_all');
+
+Route::post('mascota/nuevo','API\MascotasController@create');
+
+Route::post('mascota/eliminar','API\MascotasController@destroy');
+
+Route::post('mascota/editar','API\MascotasController@update');
