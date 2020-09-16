@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//al ir a la ruta mascota/list, llama la función get_all/create/destroy/update de MascotasController dentro de app>http>controllers>api
 Route::get('mascota/list', 'API\MascotasController@get_all');
 
 Route::post('mascota/nuevo','API\MascotasController@create');

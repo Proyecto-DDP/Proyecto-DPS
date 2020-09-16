@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 const baseUrl = 'http://localhost/control-mascotas-react/public/';
 
 export default class MascotasForm extends Component {
+
+    //constructor que inicializa las variables de la clase
     constructor(props) {
         super(props);
         this.state = {
@@ -15,27 +17,25 @@ export default class MascotasForm extends Component {
             notas: '',
             edit: false
         }
-
+        //handlers para capturar el valor de los campos cuando cambian
         this.handleChangeCodigo = this.handleChangeCodigo.bind(this);
         this.handleChangeNombre = this.handleChangeNombre.bind(this);
         this.handleChangeRaza = this.handleChangeRaza.bind(this)
         this.handleChangeNacimiento = this.handleChangeNacimiento.bind(this)
         this.handleChangeNotas = this.handleChangeNotas.bind(this)
     }
-
+    //cuando el componente se genera, hace la conexión al backend
     componentDidMount() {
         axios.get(baseUrl + 'api/mascota/list').then(response => {
             this.setState({ mascota: response.data })
         }).catch(error => {
             alert("Error " + error)
         })
-
     }
-
+    //render del jsx a html
     render() {
         return (
             <div className="container">
-
                 <h3>Laravel y React APIRest</h3>
                 <hr />
                 <button type="button" className="btn btn-primary col-md-4" data-toggle="modal" data-target="#exampleModal">
@@ -56,9 +56,9 @@ export default class MascotasForm extends Component {
                         {this.renderList()}
                     </tbody>
                 </table>
-
+                {/* formulario principal */}
                 <form>
-                    <div ref="putomodal" className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -97,13 +97,13 @@ export default class MascotasForm extends Component {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkProduct()}>Guardar</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkMascota()}>Guardar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-
+                {/* modal de confirmación para eliminar */}
                 <div className="modal fade" id="exampleModalDelete" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
 
@@ -126,7 +126,7 @@ export default class MascotasForm extends Component {
 
                     </div>
                 </div>
-
+                {/* formulario de editar */}
                 <form>
                     <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
@@ -167,11 +167,12 @@ export default class MascotasForm extends Component {
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    {/* si el registro ya existe, modifica, sino, guarda */}
                                     {
                                         this.state.edit ?
                                             <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkUpdate()}>Actualizar</button>
                                             :
-                                            <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkProduct()}>Guardar</button>
+                                            <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkMascota()}>Guardar</button>
                                     }
                                 </div>
                             </div>
@@ -181,7 +182,7 @@ export default class MascotasForm extends Component {
             </div>
         )
     }
-
+    //función que renderiza los elementos que regresen del backend
     renderList() {
         return this.state.mascota.map((data) => {
             return (
@@ -201,6 +202,7 @@ export default class MascotasForm extends Component {
         })
     }
 
+    //declaración de los handlers que se usan en el constructor
     handleChangeCodigo(event) {
         this.setState({ codigoMascota: event.target.value });
     }
@@ -220,18 +222,18 @@ export default class MascotasForm extends Component {
     handleChangeNotas(event) {
         this.setState({ notas: event.target.value });
     }
-
-    sendNetworkProduct() {
-
+    //función para ingresar una nueva mascota
+    sendNetworkMascota() {
+        //mete los datos en un formData
         const formData = new FormData()
         formData.append('codigoMascota', this.state.codigoMascota)
         formData.append('razaMascota', this.state.razaMascota)
         formData.append('nombreMascota', this.state.nombreMascota)
         formData.append('birthYear', this.state.birthYear)
         formData.append('notas', this.state.notas)
-
+        //pasa los datos a la ruta definida en routes>api.php
         axios.post(baseUrl + 'api/mascota/nuevo', formData).then(response => {
-
+            //si la respuesta es success
             if (response.data.success == true) {
                 alert(response.data.message)
                 // cargar datos de nuevo
@@ -244,7 +246,7 @@ export default class MascotasForm extends Component {
         })
 
     }
-
+    //funcuión para editar un registro
     sendNetworkUpdate() {
 
         const formData = new FormData()
@@ -269,7 +271,7 @@ export default class MascotasForm extends Component {
         })
 
     }
-
+    //función para eliminar un registro
     sendNetworkDelete() {
 
         const formData = new FormData()
@@ -290,7 +292,7 @@ export default class MascotasForm extends Component {
         })
 
     }
-
+    //vuelve a cargar la tabla donde se muestran
     loadData() {
 
         axios.get(baseUrl + 'api/mascota/list').then(response => {

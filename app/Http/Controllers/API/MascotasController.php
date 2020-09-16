@@ -27,9 +27,9 @@ class MascotasController extends Controller
     {
         Mascota::insert([
             'codigoMascota' => $request->input('codigoMascota'),
-            'idRaza' => "1",
+            'idRaza' => $request->input('razaMascota'),
             'nombreMascota' => $request->input('nombreMascota'),
-            'birthYear' => "1998",
+            'birthYear' => $request->input('birthYear'),
             'notas' => $request->input('notas'),
           ]);
     
