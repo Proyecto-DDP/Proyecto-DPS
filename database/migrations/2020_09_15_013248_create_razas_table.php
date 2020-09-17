@@ -15,7 +15,7 @@ class CreateRazasTable extends Migration
     {
         Schema::create('razas', function (Blueprint $table) {
             $table->id('idRaza')->index();
-            $table->string('nombreRaza');
+            $table->string('nombreRaza', '25');
         });
     }
 
