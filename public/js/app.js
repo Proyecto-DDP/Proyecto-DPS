@@ -69789,17 +69789,23 @@ module.exports = function(module) {
  * includes React and other helpers. It's a great starting point while
  * building robust, powerful web applications using React + Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 /**
  * Next, we will create a fresh React component instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
+
+__webpack_require__(/*! ./components/mascotasForm */ "./resources/js/components/mascotasForm.js");
 
 __webpack_require__(/*! ./components/loginForm */ "./resources/js/components/loginForm.js");
 
-__webpack_require__(/*! ./components/mascotasForm */ "./resources/js/components/mascotasForm.js");
+__webpack_require__(/*! ./components/serviciosForm */ "./resources/js/components/serviciosForm.js");
+
+__webpack_require__(/*! ./components/razasForm */ "./resources/js/components/razasForm.js");
 
 /***/ }),
 
@@ -69845,6 +69851,46 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/Example.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Example.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Example() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row justify-content-center"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-8"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-header"
+  }, "Example Component"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, "I'm an example component!")))));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Example);
+
+if (document.getElementById('example')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
+}
 
 /***/ }),
 
@@ -70000,6 +70046,7 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(MascotasForm);
 
+  //constructor que inicializa las variables de la clase
   function MascotasForm(props) {
     var _this;
 
@@ -70014,14 +70061,16 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       birthYear: '',
       notas: '',
       edit: false
-    };
+    }; //handlers para capturar el valor de los campos cuando cambian
+
     _this.handleChangeCodigo = _this.handleChangeCodigo.bind(_assertThisInitialized(_this));
     _this.handleChangeNombre = _this.handleChangeNombre.bind(_assertThisInitialized(_this));
     _this.handleChangeRaza = _this.handleChangeRaza.bind(_assertThisInitialized(_this));
     _this.handleChangeNacimiento = _this.handleChangeNacimiento.bind(_assertThisInitialized(_this));
     _this.handleChangeNotas = _this.handleChangeNotas.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } //cuando el componente se genera, hace la conexión al backend
+
 
   _createClass(MascotasForm, [{
     key: "componentDidMount",
@@ -70035,7 +70084,8 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         alert("Error " + error);
       });
-    }
+    } //render del jsx a html
+
   }, {
     key: "render",
     value: function render() {
@@ -70053,7 +70103,6 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de mascota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Indicaciones especiales"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Acciones"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
         id: "bodytable"
       }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        ref: "putomodal",
         className: "modal fade",
         tabIndex: "-1",
         role: "dialog",
@@ -70142,7 +70191,7 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary",
         onClick: function onClick() {
-          return _this3.sendNetworkProduct();
+          return _this3.sendNetworkMascota();
         }
       }, "Guardar")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
@@ -70278,10 +70327,11 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
         type: "button",
         className: "btn btn-primary",
         onClick: function onClick() {
-          return _this3.sendNetworkProduct();
+          return _this3.sendNetworkMascota();
         }
       }, "Guardar")))))));
-    }
+    } //función que renderiza los elementos que regresen del backend
+
   }, {
     key: "renderList",
     value: function renderList() {
@@ -70300,7 +70350,8 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
           }
         }, "Eliminar")));
       });
-    }
+    } //declaración de los handlers que se usan en el constructor
+
   }, {
     key: "handleChangeCodigo",
     value: function handleChangeCodigo(event) {
@@ -70335,19 +70386,23 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       this.setState({
         notas: event.target.value
       });
-    }
+    } //función para ingresar una nueva mascota
+
   }, {
-    key: "sendNetworkProduct",
-    value: function sendNetworkProduct() {
+    key: "sendNetworkMascota",
+    value: function sendNetworkMascota() {
       var _this5 = this;
 
+      //mete los datos en un formData
       var formData = new FormData();
       formData.append('codigoMascota', this.state.codigoMascota);
       formData.append('razaMascota', this.state.razaMascota);
       formData.append('nombreMascota', this.state.nombreMascota);
       formData.append('birthYear', this.state.birthYear);
-      formData.append('notas', this.state.notas);
+      formData.append('notas', this.state.notas); //pasa los datos a la ruta definida en routes>api.php
+
       axios.post(baseUrl + 'api/mascota/nuevo', formData).then(function (response) {
+        //si la respuesta es success
         if (response.data.success == true) {
           alert(response.data.message); // cargar datos de nuevo
 
@@ -70358,7 +70413,8 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         alert("Error " + error);
       });
-    }
+    } //funcuión para editar un registro
+
   }, {
     key: "sendNetworkUpdate",
     value: function sendNetworkUpdate() {
@@ -70382,7 +70438,8 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         alert("Error 456" + error);
       });
-    }
+    } //función para eliminar un registro
+
   }, {
     key: "sendNetworkDelete",
     value: function sendNetworkDelete() {
@@ -70402,7 +70459,8 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
       })["catch"](function (error) {
         alert("Error " + error);
       });
-    }
+    } //vuelve a cargar la tabla donde se muestran
+
   }, {
     key: "loadData",
     value: function loadData() {
@@ -70453,6 +70511,1006 @@ if (document.getElementById('crud-mascotas')) {
 
 /***/ }),
 
+/***/ "./resources/js/components/razasForm.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/razasForm.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return RazasForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var baseUrl = 'http://localhost/control-mascotas-react/public/';
+
+var RazasForm = /*#__PURE__*/function (_Component) {
+  _inherits(RazasForm, _Component);
+
+  var _super = _createSuper(RazasForm);
+
+  //constructor que inicializa las variables de la clase
+  function RazasForm(props) {
+    var _this;
+
+    _classCallCheck(this, RazasForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      raza: [],
+      idRaza: '',
+      nombreRaza: '',
+      especie: '',
+      edit: false
+    }; //handlers para capturar el valor de los campos cuando cambian
+
+    _this.handleChangeIdRaza = _this.handleChangeIdRaza.bind(_assertThisInitialized(_this));
+    _this.handleChangeNombreRaza = _this.handleChangeNombreRaza.bind(_assertThisInitialized(_this));
+    _this.handleChangeEspecie = _this.handleChangeEspecie.bind(_assertThisInitialized(_this));
+    return _this;
+  } //cuando el componente se genera, hace la conexión al backend
+
+
+  _createClass(RazasForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get(baseUrl + 'api/raza/list').then(function (response) {
+        _this2.setState({
+          raza: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //render del jsx a html
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Razas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary col-md-4",
+        "data-toggle": "modal",
+        "data-target": "#exampleModal"
+      }, "Ingrese la raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-bordered order-table "
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID Raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Especie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre de la raza"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+        id: "bodytable"
+      }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de razas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idRaza"
+      }, "id de la raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "idRaza",
+        className: "form-control",
+        defaultValue: this.state.idRaza,
+        onChange: this.handleChangeIdRaza
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "especie"
+      }, "Especie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "especie",
+        defaultValue: this.state.especie,
+        onChange: this.handleChangeEspecie
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione una especie --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Perro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Gato"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "3"
+      }, "Conejo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "4"
+      }, "Loro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Perico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Tortuga"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Hamster"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Perico"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombreRaza"
+      }, "Nombre de la raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "nombreRaza",
+        className: "form-control",
+        defaultValue: this.state.nombreRaza,
+        onChange: this.handleChangeNombreRaza
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkServ();
+        }
+      }, "Guardar")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModalDelete",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Eliminar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\xBFEsta seguro desea de eliminar el registro?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkDelete();
+        }
+      }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModal",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de razas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idRaza"
+      }, "id de la raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "idRaza",
+        className: "form-control",
+        defaultValue: this.state.idRaza,
+        onChange: this.handleChangeIdRaza
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "especie"
+      }, "Especie"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "especie",
+        defaultValue: this.state.especie,
+        onChange: this.handleChangeEspecie
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione una especie --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Perro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Gato"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "3"
+      }, "Conejo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "4"
+      }, "Loro"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Perico"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Tortuga"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Hamster"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Perico"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombreRaza"
+      }, "Nombre de la raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "nombreRaza",
+        className: "form-control",
+        defaultValue: this.state.nombreRaza,
+        onChange: this.handleChangeNombreRaza
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), this.state.edit ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUpdate();
+        }
+      }, "Actualizar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkServ();
+        }
+      }, "Guardar")))))));
+    } //función que renderiza los elementos que regresen del backend
+
+  }, {
+    key: "renderList",
+    value: function renderList() {
+      var _this4 = this;
+
+      return this.state.raza.map(function (data) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.idRaza), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.especie), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nombreRaza), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-info",
+          onClick: function onClick() {
+            return _this4.showModalEdit(data);
+          }
+        }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger",
+          onClick: function onClick() {
+            return _this4.showModalDelete(data);
+          }
+        }, "Eliminar")));
+      });
+    } //declaración de los handlers que se usan en el constructor
+
+  }, {
+    key: "handleChangeIdRaza",
+    value: function handleChangeIdRaza(event) {
+      this.setState({
+        idRaza: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNombreRaza",
+    value: function handleChangeNombreRaza(event) {
+      this.setState({
+        nombreRaza: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeEspecie",
+    value: function handleChangeEspecie(event) {
+      this.setState({
+        especie: event.target.value
+      });
+    } //función para ingresar una nueva mascota
+
+  }, {
+    key: "sendNetworkServ",
+    value: function sendNetworkServ() {
+      var _this5 = this;
+
+      //mete los datos en un formData
+      var formData = new FormData();
+      formData.append('idRaza', this.state.idRaza);
+      formData.append('especie', this.state.especie);
+      formData.append('nombreRaza', this.state.nombreRaza); //pasa los datos a la ruta definida en routes>api.php
+
+      axios.post(baseUrl + 'api/raza/nuevo', formData).then(function (response) {
+        //si la respuesta es success
+        if (response.data.success == true) {
+          alert(response.data.message); // cargar datos de nuevo
+
+          _this5.loadData();
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //funcuión para editar un registro
+
+  }, {
+    key: "sendNetworkUpdate",
+    value: function sendNetworkUpdate() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append('idRaza', this.state.idRaza);
+      formData.append('especie', this.state.especie);
+      formData.append('nombreRaza', this.state.nombreRaza);
+      axios.post(baseUrl + 'api/raza/editar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this6.loadData(); // para cerrar el modal
+
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error 456" + error);
+      });
+    } //función para eliminar un registro
+
+  }, {
+    key: "sendNetworkDelete",
+    value: function sendNetworkDelete() {
+      var _this7 = this;
+
+      var formData = new FormData();
+      formData.append('idRaza', this.state.idRaza);
+      axios.post(baseUrl + 'api/raza/eliminar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this7.loadData(); // para cerrar el modal
+
+
+          $("#exampleModalDelete").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //vuelve a cargar la tabla donde se muestran
+
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      var _this8 = this;
+
+      axios.get(baseUrl + 'api/raza/list').then(function (response) {
+        _this8.setState({
+          raza: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    }
+  }, {
+    key: "showModalDelete",
+    value: function showModalDelete(data) {
+      // id seleccionado para eliminar
+      this.setState({
+        idRaza: data.idRaza
+      });
+      $("#exampleModalDelete").modal("show");
+    }
+  }, {
+    key: "showModalEdit",
+    value: function showModalEdit(data) {
+      //alert("mostrar modal "+JSON.stringify(data))
+      this.setState({
+        idRaza: data.idRaza,
+        especie: data.especie,
+        nombreRaza: data.nombreRaza,
+        edit: true
+      });
+      $("#exampleModal").modal("show");
+    }
+  }]);
+
+  return RazasForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('crud-razas')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(RazasForm, null), document.getElementById('crud-razas'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/serviciosForm.js":
+/*!**************************************************!*\
+  !*** ./resources/js/components/serviciosForm.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ServiciosForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var baseUrl = 'http://localhost/control-mascotas-react/public/';
+
+var ServiciosForm = /*#__PURE__*/function (_Component) {
+  _inherits(ServiciosForm, _Component);
+
+  var _super = _createSuper(ServiciosForm);
+
+  //constructor que inicializa las variables de la clase
+  function ServiciosForm(props) {
+    var _this;
+
+    _classCallCheck(this, ServiciosForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      servicio: [],
+      idServicio: '',
+      tiempoEstimado: 0,
+      nombreServicio: '',
+      formatoTiempo: '',
+      precio: 0,
+      edit: false
+    }; //handlers para capturar el valor de los campos cuando cambian
+
+    _this.handleChangeIdServicio = _this.handleChangeIdServicio.bind(_assertThisInitialized(_this));
+    _this.handleChangeNombreServicio = _this.handleChangeNombreServicio.bind(_assertThisInitialized(_this));
+    _this.handleChangeTiempoEstimado = _this.handleChangeTiempoEstimado.bind(_assertThisInitialized(_this));
+    _this.handleChangeFormatoTiempo = _this.handleChangeFormatoTiempo.bind(_assertThisInitialized(_this));
+    _this.handleChangePrecio = _this.handleChangePrecio.bind(_assertThisInitialized(_this));
+    return _this;
+  } //cuando el componente se genera, hace la conexión al backend
+
+
+  _createClass(ServiciosForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get(baseUrl + 'api/servicio/list').then(function (response) {
+        _this2.setState({
+          servicio: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //render del jsx a html
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Servicios"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary col-md-4",
+        "data-toggle": "modal",
+        "data-target": "#exampleModal"
+      }, "Crear el servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-bordered order-table "
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID Servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre del servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tiempo estimado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Formato de tiempo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Precio"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+        id: "bodytable"
+      }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de servicios"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idServicio"
+      }, "id del Servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "idServicio",
+        className: "form-control",
+        defaultValue: this.state.idServicio,
+        onChange: this.handleChangeIdServicio
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombreServicio"
+      }, "Servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "nombreServicio",
+        defaultValue: this.state.nombreServicio,
+        onChange: this.handleChangeNombreServicio
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione un servicio --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Hospital"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Consultas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "3"
+      }, "Hospedaje"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "4"
+      }, "Ba\xF1os Medicados"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Peluquer\xEDa"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "tiempoEstimado"
+      }, "Tiempo Estimado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "tiempoEstimado",
+        className: "form-control",
+        defaultValue: this.state.tiempoEstimado,
+        onChange: this.handleChangeTiempoEstimado
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "formatoTiempo"
+      }, "Formato de tiempo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "formatoTiempo",
+        defaultValue: this.state.formatoTiempo,
+        onChange: this.handleChangeFormatoTiempo
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione un servicio --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Minutos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Horas"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "precio"
+      }, "Precio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "precio",
+        className: "form-control",
+        defaultValue: this.state.precio,
+        onChange: this.handleChangePrecio
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkServ();
+        }
+      }, "Guardar")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModalDelete",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Eliminar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\xBFEsta seguro desea de eliminar el registro?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkDelete();
+        }
+      }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModal",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de servicios"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idServicio"
+      }, "id del Servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "idServicio",
+        className: "form-control",
+        defaultValue: this.state.idServicio,
+        onChange: this.handleChangeIdServicio
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombreServicio"
+      }, "Servicio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "nombreServicio",
+        defaultValue: this.state.nombreServicio,
+        onChange: this.handleChangeNombreServicio
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione un servicio --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Hospital"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Consultas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "3"
+      }, "Hospedaje"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "4"
+      }, "Ba\xF1os Medicados"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "5"
+      }, "Peluquer\xEDa"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "tiempoEstimado"
+      }, "Tiempo Estimado"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "tiempoEstimado",
+        className: "form-control",
+        defaultValue: this.state.tiempoEstimado,
+        onChange: this.handleChangeTiempoEstimado
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "formatoTiempo"
+      }, "Formato de tiempo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+        name: "formatoTiempo",
+        defaultValue: this.state.formatoTiempo,
+        onChange: this.handleChangeFormatoTiempo
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "-- Seleccione un servicio --"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "1"
+      }, "Minutos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: "2"
+      }, "Horas"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "precio"
+      }, "Precio"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "precio",
+        className: "form-control",
+        defaultValue: this.state.precio,
+        onChange: this.handleChangePrecio
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), this.state.edit ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUpdate();
+        }
+      }, "Actualizar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkServ();
+        }
+      }, "Guardar")))))));
+    } //función que renderiza los elementos que regresen del backend
+
+  }, {
+    key: "renderList",
+    value: function renderList() {
+      var _this4 = this;
+
+      return this.state.servicio.map(function (data) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.idServicio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nombreServicio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.tiempoEstimado), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.formatoTiempo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.precio), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-info",
+          onClick: function onClick() {
+            return _this4.showModalEdit(data);
+          }
+        }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger",
+          onClick: function onClick() {
+            return _this4.showModalDelete(data);
+          }
+        }, "Eliminar")));
+      });
+    } //declaración de los handlers que se usan en el constructor
+
+  }, {
+    key: "handleChangeIdServicio",
+    value: function handleChangeIdServicio(event) {
+      this.setState({
+        idServicio: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNombreServicio",
+    value: function handleChangeNombreServicio(event) {
+      this.setState({
+        nombreServicio: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTiempoEstimado",
+    value: function handleChangeTiempoEstimado(event) {
+      this.setState({
+        tiempoEstimado: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeFormatoTiempo",
+    value: function handleChangeFormatoTiempo(event) {
+      this.setState({
+        formatoTiempo: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangePrecio",
+    value: function handleChangePrecio(event) {
+      this.setState({
+        precio: event.target.value
+      });
+    } //función para ingresar una nueva mascota
+
+  }, {
+    key: "sendNetworkServ",
+    value: function sendNetworkServ() {
+      var _this5 = this;
+
+      //mete los datos en un formData
+      var formData = new FormData();
+      formData.append('idServicio', this.state.idServicio);
+      formData.append('nombreServicio', this.state.nombreServicio);
+      formData.append('tiempoEstimado', this.state.tiempoEstimado);
+      formData.append('formatoTiempo', this.state.formatoTiempo);
+      formData.append('precio', this.state.precio); //pasa los datos a la ruta definida en routes>api.php
+
+      axios.post(baseUrl + 'api/servicio/nuevo', formData).then(function (response) {
+        //si la respuesta es success
+        if (response.data.success == true) {
+          alert(response.data.message); // cargar datos de nuevo
+
+          _this5.loadData();
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //funcuión para editar un registro
+
+  }, {
+    key: "sendNetworkUpdate",
+    value: function sendNetworkUpdate() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append('idServicio', this.state.idServicio);
+      formData.append('nombreServicio', this.state.nombreServicio);
+      formData.append('tiempoEstimado', this.state.tiempoEstimado);
+      formData.append('formatoTiempo', this.state.formatoTiempo);
+      formData.append('precio', this.state.precio);
+      axios.post(baseUrl + 'api/servicio/editar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this6.loadData(); // para cerrar el modal
+
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error 456" + error);
+      });
+    } //función para eliminar un registro
+
+  }, {
+    key: "sendNetworkDelete",
+    value: function sendNetworkDelete() {
+      var _this7 = this;
+
+      var formData = new FormData();
+      formData.append('idServicio', this.state.idServicio);
+      axios.post(baseUrl + 'api/servicio/eliminar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this7.loadData(); // para cerrar el modal
+
+
+          $("#exampleModalDelete").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //vuelve a cargar la tabla donde se muestran
+
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      var _this8 = this;
+
+      axios.get(baseUrl + 'api/servicio/list').then(function (response) {
+        _this8.setState({
+          servicio: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    }
+  }, {
+    key: "showModalDelete",
+    value: function showModalDelete(data) {
+      // id seleccionado para eliminar
+      this.setState({
+        idServicio: data.idServicio
+      });
+      $("#exampleModalDelete").modal("show");
+    }
+  }, {
+    key: "showModalEdit",
+    value: function showModalEdit(data) {
+      //alert("mostrar modal "+JSON.stringify(data))
+      this.setState({
+        idServicio: data.idServicio,
+        nombreServicio: data.nombreServicio,
+        tiempoEstimado: data.tiempoEstimado,
+        formatoTiempo: data.formatoTiempo,
+        precio: data.precio,
+        edit: true
+      });
+      $("#exampleModal").modal("show");
+    }
+  }]);
+
+  return ServiciosForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('crud-servicios')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ServiciosForm, null), document.getElementById('crud-servicios'));
+}
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -70471,8 +71529,8 @@ if (document.getElementById('crud-mascotas')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\control-mascotas-react\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\control-mascotas-react\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\wamp64\www\control-mascotas-react\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\wamp64\www\control-mascotas-react\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

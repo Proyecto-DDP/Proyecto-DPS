@@ -29,3 +29,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Ver /servicios
+Route::get('/servicios', function(){
+    return view("pages.servicios");
+});
+
+//Ver /razas
+Route::get('/razas', function(){
+    return view("pages.razas");
+});

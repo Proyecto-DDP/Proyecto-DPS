@@ -15,7 +15,7 @@ class CreateRecibosTable extends Migration
     {
         Schema::create('recibos', function (Blueprint $table) {
             $table->id('idRecibo');
-            $table->string('codigoUsuario');
+            $table->string('codigoUsuario', '50');
             $table->smallInteger('idDetalle');
             $table->float('total', 8, 2);
         });

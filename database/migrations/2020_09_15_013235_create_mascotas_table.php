@@ -16,9 +16,9 @@ class CreateMascotasTable extends Migration
         Schema::create('mascotas', function (Blueprint $table) {
             $table->id('codigoMascota')->unique()->index();
             $table->smallInteger('idRaza');
-            $table->string('nombreMascota');
+            $table->string('nombreMascota', '50');
             $table->smallInteger('birthYear');
-            $table->string("notas");
+            $table->string("notas", '150');
         });
     }
 

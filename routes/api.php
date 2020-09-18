@@ -25,3 +25,24 @@ Route::post('mascota/nuevo','API\MascotasController@create');
 Route::post('mascota/eliminar','API\MascotasController@destroy');
 
 Route::post('mascota/editar','API\MascotasController@update');
+
+//Servicios
+
+Route::get('servicio/list', 'API\ServiciosController@get_all');
+
+Route::post('servicio/nuevo','API\ServiciosController@create');
+
+Route::post('servicio/eliminar','API\ServiciosController@destroy');
+
+Route::post('servicio/editar','API\ServiciosController@update');
+
+
+//Razas
+
+Route::get('raza/list', 'API\RazasController@get_all');
+
+Route::post('raza/nuevo','API\RazasController@create');
+
+Route::post('raza/eliminar','API\RazasController@destroy');
+
+Route::post('raza/editar','API\RazasController@update');

@@ -15,8 +15,10 @@ class CreateServiciosTable extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->id('idServicio')->unique()->index();
-            $table->string('nombreServicio');
+            $table->string('nombreServicio','50');
             $table->float('tiempoEstimado', 8, 1);
+            $table->string('formatoTiempo','50');
+            $table->float('precio', 8, 2);
         });
     }
 

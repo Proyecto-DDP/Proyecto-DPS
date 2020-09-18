@@ -15,8 +15,8 @@ class CreatePropietarioMascotaTable extends Migration
     {
         Schema::create('propietario_mascota', function (Blueprint $table) {
             $table->index(['codigoUsuario', 'codigoMascota']);
-            $table->string('codigoUsuario');
-            $table->string('codigoMascota');
+            $table->string('codigoUsuario','50');
+            $table->string('codigoMascota','10');
         });
     }
 
