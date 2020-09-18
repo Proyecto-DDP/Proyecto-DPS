@@ -16,7 +16,10 @@ class CreateRazasTable extends Migration
         Schema::create('razas', function (Blueprint $table) {
             $table->id('idRaza')->index();
             $table->string('nombreRaza', '25');
+<<<<<<< HEAD
             $table->string('especie','25');
+=======
+>>>>>>> 14beaddb28312b232ddab58496c183b73817c9f7
         });
     }
 

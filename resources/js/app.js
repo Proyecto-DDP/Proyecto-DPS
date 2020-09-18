@@ -13,7 +13,17 @@
  */
 require('./bootstrap');
 require('./components/Example');
+<<<<<<< HEAD
 require('./components/mascotasForm');
 require('./components/loginForm');
 require('./components/serviciosForm');
 require('./components/razasForm');
+=======
+<<<<<<< HEAD
+require('./components/loginForm');
+require('./components/mascotasForm');
+=======
+require('./components/mascotasForm');
+require('./components/loginForm');
+>>>>>>> 68c73cd1cb61f644b3db5d0551d5740f627ee344
+>>>>>>> 14beaddb28312b232ddab58496c183b73817c9f7
