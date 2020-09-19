@@ -22,6 +22,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mascota', function(){
     return view("pages.mascota");
 });
+
+Route::get('/recibos', function(){
+    return view("pages.recibo");
+});
+
+Route::get('/detalles', function(){
+    return view("pages.detalle");
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -29,3 +38,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

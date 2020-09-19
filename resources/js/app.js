@@ -13,10 +13,9 @@ require('./bootstrap');
  */
 
 require('./components/Example');
-<<<<<<< HEAD
 require('./components/loginForm');
 require('./components/mascotasForm');
-=======
-require('./components/mascotasForm');
-require('./components/loginForm');
->>>>>>> 68c73cd1cb61f644b3db5d0551d5740f627ee344
+require('./components/recibosForm');
+require('./components/detallesForm');
+
+
