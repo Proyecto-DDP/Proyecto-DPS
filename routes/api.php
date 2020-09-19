@@ -26,7 +26,6 @@ Route::post('mascota/eliminar','API\MascotasController@destroy');
 
 Route::post('mascota/editar','API\MascotasController@update');
 
-<<<<<<< HEAD
 
 Route::get('recibo/list', 'API\RecibosController@get_all');
 
@@ -44,7 +43,6 @@ Route::post('detalle/nuevo','API\DetallesController@create');
 Route::post('detalle/eliminar','API\DetallesController@destroy');
 
 Route::post('detalle/editar','API\DetallesController@update');
-=======
 //Servicios
 
 Route::get('servicio/list', 'API\ServiciosController@get_all');
@@ -65,4 +63,3 @@ Route::post('raza/nuevo','API\RazasController@create');
 Route::post('raza/eliminar','API\RazasController@destroy');
 
 Route::post('raza/editar','API\RazasController@update');
->>>>>>> c1cfc1ceb03fbbeaa88f6794b6f6a5fef9e00d2d

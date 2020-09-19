@@ -39,15 +39,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-<<<<<<< HEAD
-=======
-//Ver /servicios
+
 Route::get('/servicios', function(){
     return view("pages.servicios");
 });
 
-//Ver /razas
 Route::get('/razas', function(){
     return view("pages.razas");
 });
->>>>>>> c1cfc1ceb03fbbeaa88f6794b6f6a5fef9e00d2d
