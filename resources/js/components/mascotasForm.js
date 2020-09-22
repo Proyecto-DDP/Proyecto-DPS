@@ -46,7 +46,7 @@ export default class MascotasForm extends Component {
                         <tr>
                             <th>Código de mascota</th>
                             <th>Raza</th>
-                            <th>Nombre PENE UWU</th>
+                            <th>Nombre</th>
                             <th>Edad</th>
                             <th>Indicaciones especiales</th>
                             <th>Acciones</th>

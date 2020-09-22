@@ -23,6 +23,10 @@ Route::get('/mascota', function(){
     return view("pages.mascota");
 });
 
+Route::get('/usuario', function(){
+    return view("pages.usuario");
+});
+
 Route::get('/recibos', function(){
     return view("pages.recibo");
 });

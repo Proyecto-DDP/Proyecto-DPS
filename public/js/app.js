@@ -69815,6 +69815,8 @@ __webpack_require__(/*! ./components/serviciosForm */ "./resources/js/components
 
 __webpack_require__(/*! ./components/razasForm */ "./resources/js/components/razasForm.js");
 
+__webpack_require__(/*! ./components/usuariosForm */ "./resources/js/components/usuariosForm.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -70550,7 +70552,7 @@ var MascotasForm = /*#__PURE__*/function (_Component) {
         "data-target": "#exampleModal"
       }, "Crear producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-bordered order-table "
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de mascota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre PENE UWU"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Indicaciones especiales"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Acciones"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de mascota"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Raza"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Indicaciones especiales"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Acciones"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
         id: "bodytable"
       }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal fade",
@@ -72431,6 +72433,606 @@ var ServiciosForm = /*#__PURE__*/function (_Component) {
 
 if (document.getElementById('crud-servicios')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ServiciosForm, null), document.getElementById('crud-servicios'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/usuariosForm.js":
+/*!*************************************************!*\
+  !*** ./resources/js/components/usuariosForm.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UsuariosForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var baseUrl = 'http://localhost/control-mascotas-react/public/';
+
+var UsuariosForm = /*#__PURE__*/function (_Component) {
+  _inherits(UsuariosForm, _Component);
+
+  var _super = _createSuper(UsuariosForm);
+
+  //constructor que inicializa las variables de la clase
+  function UsuariosForm(props) {
+    var _this;
+
+    _classCallCheck(this, UsuariosForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      usuario: [],
+      codigoUsuario: 0,
+      nombresUsuario: '',
+      apellidosUsuario: '',
+      password: '',
+      edad: '',
+      dui: '',
+      cargo: '',
+      telefono: '',
+      edit: false
+    }; //handlers para capturar el valor de los campos cuando cambian
+
+    _this.handleChangeCodigo = _this.handleChangeCodigo.bind(_assertThisInitialized(_this));
+    _this.handleChangeNombre = _this.handleChangeNombre.bind(_assertThisInitialized(_this));
+    _this.handleChangeApellido = _this.handleChangeApellido.bind(_assertThisInitialized(_this));
+    _this.handleChangePass = _this.handleChangePass.bind(_assertThisInitialized(_this));
+    _this.handleChangeEdad = _this.handleChangeEdad.bind(_assertThisInitialized(_this));
+    _this.handleChangeDUI = _this.handleChangeDUI.bind(_assertThisInitialized(_this));
+    _this.handleChangeCargo = _this.handleChangeCargo.bind(_assertThisInitialized(_this));
+    _this.handleChangeTelefono = _this.handleChangeTelefono.bind(_assertThisInitialized(_this));
+    return _this;
+  } //cuando el componente se genera, hace la conexión al backend
+
+
+  _createClass(UsuariosForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get(baseUrl + 'api/usuario/list').then(function (response) {
+        _this2.setState({
+          usuario: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //render del jsx a html
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Laravel y React APIRest"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary col-md-4",
+        "data-toggle": "modal",
+        "data-target": "#exampleModal"
+      }, "Crear producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-bordered order-table "
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Nombres"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Apellidos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Contrase\xF1a"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "DUI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Tel\xE9fono"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Acciones"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+        id: "bodytable"
+      }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "codigoUsuario"
+      }, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "codigoUsuario",
+        className: "form-control",
+        defaultValue: this.state.codigoUsuario,
+        onChange: this.handleChangeCodigo
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombresUsuario"
+      }, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "nombresUsuario",
+        className: "form-control",
+        defaultValue: this.state.nombresUsuario,
+        onChange: this.handleChangeNombre
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "apellidosUsuario"
+      }, "Apellido"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "apellidosUsuario",
+        className: "form-control",
+        defaultValue: this.state.apellidosUsuario,
+        onChange: this.handleChangeApellido
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "password"
+      }, "Contrase\xF1a"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "password",
+        className: "form-control",
+        defaultValue: this.state.password,
+        onChange: this.handleChangePass
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "edad"
+      }, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "edad",
+        className: "form-control",
+        defaultValue: this.state.edad,
+        onChange: this.handleChangeEdad
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "dui"
+      }, "DUI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "dui",
+        className: "form-control",
+        defaultValue: this.state.dui,
+        onChange: this.handleChangeDUI
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cargo"
+      }, "Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "cargo",
+        className: "form-control",
+        defaultValue: this.state.cargo,
+        onChange: this.handleChangeCargo
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "telefono"
+      }, "Tel\xE9fono"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "telefono",
+        className: "form-control",
+        defaultValue: this.state.telefono,
+        onChange: this.handleChangeTelefono
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUsuario();
+        }
+      }, "Guardar")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModalDelete",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Eliminar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Esta seguro desea de eliminar un regsitro?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkDelete();
+        }
+      }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModal",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de usuarios"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "codigoUsuario"
+      }, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "codigoUsuario",
+        className: "form-control",
+        defaultValue: this.state.codigoUsuario,
+        onChange: this.handleChangeCodigo
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "nombresUsuario"
+      }, "Nombre"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "nombresUsuario",
+        className: "form-control",
+        defaultValue: this.state.nombresUsuario,
+        onChange: this.handleChangeNombre
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "apellidosUsuario"
+      }, "Apellido"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "apellidosUsuario",
+        className: "form-control",
+        defaultValue: this.state.apellidosUsuario,
+        onChange: this.handleChangeApellido
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "password"
+      }, "Contrase\xF1a"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "password",
+        className: "form-control",
+        defaultValue: this.state.password,
+        onChange: this.handleChangePass
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "edad"
+      }, "Edad"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "edad",
+        className: "form-control",
+        defaultValue: this.state.edad,
+        onChange: this.handleChangeEdad
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "dui"
+      }, "DUI"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "dui",
+        className: "form-control",
+        defaultValue: this.state.dui,
+        onChange: this.handleChangeDUI
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "cargo"
+      }, "Cargo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "cargo",
+        className: "form-control",
+        defaultValue: this.state.cargo,
+        onChange: this.handleChangeCargo
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "telefono"
+      }, "Tel\xE9fono"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        name: "telefono",
+        className: "form-control",
+        defaultValue: this.state.telefono,
+        onChange: this.handleChangeTelefono
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), this.state.edit ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUpdate();
+        }
+      }, "Actualizar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUsuario();
+        }
+      }, "Guardar")))))));
+    } //función que renderiza los elementos que regresen del backend
+
+  }, {
+    key: "renderList",
+    value: function renderList() {
+      var _this4 = this;
+
+      return this.state.usuario.map(function (data) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.codigoUsuario), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.nombresUsuario), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.apellidosUsuario), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.password), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.edad), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.dui), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.cargo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.telefono), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-info",
+          onClick: function onClick() {
+            return _this4.showModalEdit(data);
+          }
+        }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger",
+          onClick: function onClick() {
+            return _this4.showModalDelete(data);
+          }
+        }, "Eliminar")));
+      });
+    } //declaración de los handlers que se usan en el constructor
+
+  }, {
+    key: "handleChangeCodigo",
+    value: function handleChangeCodigo(event) {
+      this.setState({
+        codigoUsuario: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeNombre",
+    value: function handleChangeNombre(event) {
+      this.setState({
+        nombresUsuario: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeApellido",
+    value: function handleChangeApellido(event) {
+      this.setState({
+        apellidosUsuario: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangePass",
+    value: function handleChangePass(event) {
+      this.setState({
+        password: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeEdad",
+    value: function handleChangeEdad(event) {
+      this.setState({
+        edad: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeDUI",
+    value: function handleChangeDUI(event) {
+      this.setState({
+        dui: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeCargo",
+    value: function handleChangeCargo(event) {
+      this.setState({
+        cargo: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeTelefono",
+    value: function handleChangeTelefono(event) {
+      this.setState({
+        telefono: event.target.value
+      });
+    } //función para ingresar una nueva mascota
+
+  }, {
+    key: "sendNetworkUsuario",
+    value: function sendNetworkUsuario() {
+      var _this5 = this;
+
+      //mete los datos en un formData
+      var formData = new FormData();
+      formData.append('codigoUsuario', this.state.codigoUsuario);
+      formData.append('nombresUsuario', this.state.nombresUsuario);
+      formData.append('apellidosUsuario', this.state.apellidosUsuario);
+      formData.append('password', this.state.password);
+      formData.append('edad', this.state.edad);
+      formData.append('dui', this.state.dui);
+      formData.append('cargo', this.state.cargo);
+      formData.append('telefono', this.state.telefono);
+      formData.append('remember_token', null); //pasa los datos a la ruta definida en routes>api.php
+
+      axios.post(baseUrl + 'api/usuario/nuevo', formData).then(function (response) {
+        //si la respuesta es success
+        if (response.data.success == true) {
+          alert(response.data.message); // cargar datos de nuevo
+
+          _this5.loadData();
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //funcuión para editar un registro
+
+  }, {
+    key: "sendNetworkUpdate",
+    value: function sendNetworkUpdate() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append('codigoUsuario', this.state.codigoUsuario);
+      formData.append('nombresUsuario', this.state.nombresUsuario);
+      formData.append('apellidosUsuario', this.state.apellidosUsuario);
+      formData.append('password', this.state.password);
+      formData.append('edad', this.state.edad);
+      formData.append('dui', this.state.dui);
+      formData.append('cargo', this.state.cargo);
+      formData.append('telefono', this.state.telefono);
+      formData.append('remember_token', null);
+      axios.post(baseUrl + 'api/usuario/editar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this6.loadData(); // para cerrar el modal
+
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error 456" + error);
+      });
+    } //función para eliminar un registro
+
+  }, {
+    key: "sendNetworkDelete",
+    value: function sendNetworkDelete() {
+      var _this7 = this;
+
+      var formData = new FormData();
+      formData.append('codigoUsuario', this.state.codigoUsuario);
+      axios.post(baseUrl + 'api/usuario/eliminar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this7.loadData(); // para cerrar el modal
+
+
+          $("#exampleModalDelete").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //vuelve a cargar la tabla donde se muestran
+
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      var _this8 = this;
+
+      axios.get(baseUrl + 'api/usuario/list').then(function (response) {
+        _this8.setState({
+          usuario: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    }
+  }, {
+    key: "showModalDelete",
+    value: function showModalDelete(data) {
+      // id seleccionado para eliminar
+      this.setState({
+        codigoUsuario: data.codigoUsuario
+      });
+      $("#exampleModalDelete").modal("show");
+    }
+  }, {
+    key: "showModalEdit",
+    value: function showModalEdit(data) {
+      //alert("mostrar modal "+JSON.stringify(data))
+      this.setState({
+        codigoUsuario: data.codigoUsuario,
+        nombresUsuario: data.nombresUsuario,
+        apellidosUsuario: data.apellidosUsuario,
+        password: data.password,
+        edad: data.edad,
+        dui: data.dui,
+        cargo: data.cargo,
+        telefono: data.telefono,
+        edit: true
+      });
+      $("#exampleModal").modal("show");
+    }
+  }]);
+
+  return UsuariosForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('crud-usuarios')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(UsuariosForm, null), document.getElementById('crud-usuarios'));
 }
 
 /***/ }),

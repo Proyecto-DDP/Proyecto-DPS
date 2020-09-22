@@ -63,3 +63,13 @@ Route::post('raza/nuevo','API\RazasController@create');
 Route::post('raza/eliminar','API\RazasController@destroy');
 
 Route::post('raza/editar','API\RazasController@update');
+
+//Usuarios
+
+Route::get('usuario/list', 'API\UsuariosController@get_all');
+
+Route::post('usuario/nuevo','API\UsuariosController@create');
+
+Route::post('usuario/eliminar','API\UsuariosController@destroy');
+
+Route::post('usuario/editar','API\UsuariosController@update');
