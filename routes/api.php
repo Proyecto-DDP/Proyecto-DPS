@@ -73,3 +73,16 @@ Route::post('usuario/nuevo','API\UsuariosController@create');
 Route::post('usuario/eliminar','API\UsuariosController@destroy');
 
 Route::post('usuario/editar','API\UsuariosController@update');
+
+
+//Citas
+
+Route::get('cita/list', 'API\CitasController@get_all');
+
+Route::post('cita/nuevo','API\CitasController@create');
+
+Route::post('cita/eliminar','API\CitasController@destroy');
+
+Route::post('cita/editar','API\CitasController@update');
+
+

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRazasTable extends Migration
+class MakeCitasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateRazasTable extends Migration
      */
     public function up()
     {
-        Schema::create('razas', function (Blueprint $table) {
-            $table->id('idRaza')->index();
-            $table->string('nombreRaza', '25');
-            $table->string('especie','25');
+        Schema::create('citas', function (Blueprint $table) {
+            $table->id('idCita')->index();
+            $table->string('codigoUsuario');
+            $table->string('fecha');
+            $table->smallInteger('idRecibo');
         });
     }
 
@@ -27,6 +28,6 @@ class CreateRazasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('razas');
+        Schema::dropIfExists('citas');
     }
 }

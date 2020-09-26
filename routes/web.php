@@ -51,3 +51,8 @@ Route::get('/servicios', function(){
 Route::get('/razas', function(){
     return view("pages.razas");
 });
+
+Route::get('/cita', function(){
+    return view("pages.cita");
+});
+

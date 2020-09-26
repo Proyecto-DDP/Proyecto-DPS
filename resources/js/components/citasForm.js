@@ -3,31 +3,29 @@ import ReactDOM from 'react-dom';
 
 const baseUrl = 'http://localhost/control-mascotas-react/public/';
 
-export default class MascotasForm extends Component {
+export default class CitasForm extends Component {
 
     //constructor que inicializa las variables de la clase
     constructor(props) {
         super(props);
         this.state = {
-            mascota: [],
-            codigoMascota: '',
-            razaMascota: 0,
-            nombreMascota: '',
-            birthYear: '',
-            notas: '',
+            cita: [],
+            idCita: '',
+            codigoUsuario: '',
+            fecha: '',
+            idRecibo: '',
             edit: false
         }
         //handlers para capturar el valor de los campos cuando cambian
-        this.handleChangeCodigo = this.handleChangeCodigo.bind(this); 
-        this.handleChangeNombre = this.handleChangeNombre.bind(this);
-        this.handleChangeRaza = this.handleChangeRaza.bind(this)
-        this.handleChangeNacimiento = this.handleChangeNacimiento.bind(this)
-        this.handleChangeNotas = this.handleChangeNotas.bind(this)
+        this.handleChangeIdCita = this.handleChangeIdCita.bind(this); 
+        this.handleChangeCodigoUsuario = this.handleChangeCodigoUsuario.bind(this);
+        this.handleChangeFecha = this.handleChangeFecha.bind(this)
+        this.handleChangeRecibo = this.handleChangeRecibo.bind(this)
     }
     //cuando el componente se genera, hace la conexión al backend
     componentDidMount() {
-        axios.get(baseUrl + 'api/mascota/list').then(response => {
-            this.setState({ mascota: response.data })
+        axios.get(baseUrl + 'api/cita/list').then(response => {
+            this.setState({ cita: response.data })
         }).catch(error => {
             alert("Error " + error)
         })
@@ -44,11 +42,10 @@ export default class MascotasForm extends Component {
                 <table className="table table-bordered order-table ">
                     <thead>
                         <tr>
-                            <th>Código de mascota</th>
-                            <th>Raza</th>
-                            <th>Nombre</th>
-                            <th>Edad</th>
-                            <th>Indicaciones especiales</th>
+                            <th>Código de cita</th>
+                            <th>Código de usuario</th>
+                            <th>Fecha de cita</th>
+                            <th>ID de Recibo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -62,42 +59,32 @@ export default class MascotasForm extends Component {
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Formulario de producto</h5>
+                                    <h5 className="modal-title" id="exampleModalLabel">Formulario de citas</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div className="modal-body">
                                     <div className="form-group">
-                                        <label htmlFor="codigoMascota">Código de mascota</label>
-                                        <input type="text" name="codigoMascota" className="form-control" defaultValue={this.state.codigoMascota} onChange={this.handleChangeCodigo} />
+                                        <label htmlFor="idCita">Código de cita</label>
+                                        <input name="idCita" className="form-control" defaultValue={this.state.idCita} onChange={this.handleChangeIdCita} />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="razaMascota">Raza</label>
-                                        <select name="idRaza" defaultValue={this.state.razaMascota} onChange={this.handleChangeRaza}>
-                                            <option value="">-- Seleccione una raza --</option>
-                                            <option value="1">Maltés</option>
-                                        </select>
+                                        <label htmlFor="codigoUsuario">Código de usuario</label>
+                                        <input name="codigoUsuario" className="form-control" defaultValue={this.state.codigoUsuario} onChange={this.handleChangeCodigoUsuario} />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="nombreMascota">Nombre de mascota</label>
-                                        <input name="nombreMascota" type="text" className="form-control" defaultValue={this.state.nombreMascota} onChange={this.handleChangeNombre} />
+                                        <label htmlFor="fechaCita">Fecha de cita</label>
+                                        <input name="fechaCita" className="form-control" defaultValue={this.state.fecha} onChange={this.handleChangeFecha}/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="birthYear">Año de nacimiento</label>
-                                        <select name="birthYear" defaultValue={this.state.birthYear} onChange={this.handleChangeNacimiento}>
-                                            <option defaultValue="">-- Seleccione un año --</option>
-                                            <option defaultValue="1998">1998</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="notas">Notas</label>
-                                        <textarea name="notas" className="form-control" rows="3" defaultValue={this.state.notas} onChange={this.handleChangeNotas}></textarea>
+                                        <label htmlFor="idRecibo">ID de Recibo</label>
+                                        <input name="idRecibo" type="text" className="form-control" defaultValue={this.state.idRecibo} onChange={this.handleChangeRecibo} />
                                     </div>
                                 </div>
                                 <div className="modal-footer">
                                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkMascota()}>Guardar</button>
+                                    <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkCita()}>Guardar</button>
                                 </div>
                             </div>
                         </div>
@@ -132,37 +119,29 @@ export default class MascotasForm extends Component {
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Formulario de mascotas</h5>
+                                    <h5 className="modal-title" id="exampleModalLabel">Formulario de citas</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div className="modal-body">
+                                    {/* Esta mierda al darle editar hay que ponerla como read only para que no edite el id */}
                                     <div className="form-group">
-                                        <label htmlFor="codigoMascota">Código de mascota</label>
-                                        <input type="text" name="codigoMascota" className="form-control" defaultValue={this.state.codigoMascota} onChange={this.handleChangeCodigo} />
+                                        <label htmlFor="idCita">Código de cita</label>
+                                        <input name="idCita" className="form-control" defaultValue={this.state.idCita} onChange={this.handleChangeIdCita} />
+                                    </div>
+                                    {/* matame */}
+                                    <div className="form-group">
+                                        <label htmlFor="codigoUsuario">Código de usuario</label>
+                                        <input name="codigoUsuario" className="form-control" defaultValue={this.state.codigoUsuario} onChange={this.handleChangeCodigoUsuario} />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="razaMascota">Raza</label>
-                                        <select name="idRaza" value={this.state.value} onChange={this.handleChangeRaza}>
-                                            <option value="">-- Seleccione una raza --</option>
-                                            <option value="1">Maltés</option>
-                                        </select>
+                                        <label htmlFor="fechaCita">Fecha de cita</label>
+                                        <input name="fechaCita" className="form-control" defaultValue={this.state.fecha} onChange={this.handleChangeFecha}/>
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="nombreMascota">Nombre de mascota</label>
-                                        <input name="nombreMascota" type="text" className="form-control" defaultValue={this.state.nombreMascota} onChange={this.handleChangeNombre} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="birthYear">Año de nacimiento</label>
-                                        <select name="birthYear" defaultValue={this.state.birthYear} onChange={this.handleChangeNacimiento}>
-                                            <option defaultValue="">-- Seleccione un año --</option>
-                                            <option defaultValue="1998">1998</option>
-                                        </select>
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="notas">Notas</label>
-                                        <textarea name="notas" className="form-control" rows="3" defaultValue={this.state.notas} onChange={this.handleChangeNotas}></textarea>
+                                        <label htmlFor="idRecibo">ID de Recibo</label>
+                                        <input type="number" name="idRecibo" type="text" className="form-control" defaultValue={this.state.idRecibo} onChange={this.handleChangeRecibo} />
                                     </div>
                                 </div>
                                 <div className="modal-footer">
@@ -172,7 +151,7 @@ export default class MascotasForm extends Component {
                                         this.state.edit ?
                                             <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkUpdate()}>Actualizar</button>
                                             :
-                                            <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkMascota()}>Guardar</button>
+                                            <button type="button" className="btn btn-primary" onClick={() => this.sendNetworkCita()}>Guardar</button>
                                     }
                                 </div>
                             </div>
@@ -184,14 +163,13 @@ export default class MascotasForm extends Component {
     }
     //función que renderiza los elementos que regresen del backend
     renderList() {
-        return this.state.mascota.map((data) => {
+        return this.state.cita.map((data) => {
             return (
                 <tr>
-                    <td>{data.codigoMascota}</td>
-                    <td>{data.idRaza}</td>
-                    <td>{data.nombreMascota}</td>
-                    <td>{data.birthYear}</td>
-                    <td>{data.notas}</td>
+                    <td>{data.idCita}</td>
+                    <td>{data.codigoUsuario}</td>
+                    <td>{data.fecha}</td>
+                    <td>{data.idRecibo}</td>
                     <td>
                         <button className="btn btn-info" onClick={() => this.showModalEdit(data)}>Editar</button>
                         <br />
@@ -203,36 +181,33 @@ export default class MascotasForm extends Component {
     }
 
     //declaración de los handlers que se usan en el constructor
-    handleChangeCodigo(event) {
-        this.setState({ codigoMascota: event.target.value });
+    handleChangeIdCita(event) {
+        this.setState({ idCita: event.target.value });
     }
 
-    handleChangeRaza(event) {
-        this.setState({ razaMascota: event.target.value });
+    handleChangeCodigoUsuario(event) {
+        this.setState({ codigoUsuario: event.target.value });
     }
 
-    handleChangeNombre(event) {
-        this.setState({ nombreMascota: event.target.value });
+    handleChangeFecha(event) {
+        this.setState({ fecha: event.target.value });
     }
 
-    handleChangeNacimiento(event) {
-        this.setState({ birthYear: event.target.value });
+    handleChangeRecibo(event) {
+        this.setState({ idRecibo: event.target.value });
     }
 
-    handleChangeNotas(event) {
-        this.setState({ notas: event.target.value });
-    }
-    //función para ingresar una nueva mascota
-    sendNetworkMascota() {
+    //función para ingresar una nueva Cita
+    sendNetworkCita() {
         //mete los datos en un formData
         const formData = new FormData()
-        formData.append('codigoMascota', this.state.codigoMascota)
-        formData.append('razaMascota', this.state.razaMascota)
-        formData.append('nombreMascota', this.state.nombreMascota)
-        formData.append('birthYear', this.state.birthYear)
-        formData.append('notas', this.state.notas)
+        formData.append('idCita', this.state.idCita)
+        formData.append('codigoUsuario', this.state.codigoUsuario)
+        formData.append('fecha', this.state.fecha)
+        formData.append('idRecibo', this.state.idRecibo)
+
         //pasa los datos a la ruta definida en routes>api.php
-        axios.post(baseUrl + 'api/mascota/nuevo', formData).then(response => {
+        axios.post(baseUrl + 'api/cita/nuevo', formData).then(response => {
             //si la respuesta es success
             if (response.data.success == true) {
                 alert(response.data.message)
@@ -250,13 +225,12 @@ export default class MascotasForm extends Component {
     sendNetworkUpdate() {
 
         const formData = new FormData()
-        formData.append('codigoMascota', this.state.codigoMascota)
-        formData.append('razaMascota', this.state.razaMascota)
-        formData.append('nombreMascota', this.state.nombreMascota)
-        formData.append('birthYear', this.state.birthYear)
-        formData.append('notas', this.state.notas)
+        formData.append('idCita', this.state.idCita)
+        formData.append('codigoUsuario', this.state.codigoUsuario)
+        formData.append('fecha', this.state.fecha)
+        formData.append('idRecibo', this.state.idRecibo)
 
-        axios.post(baseUrl + 'api/mascota/editar', formData).then(response => {
+        axios.post(baseUrl + 'api/cita/editar', formData).then(response => {
 
             if (response.data.success == true) {
                 alert(response.data.message)
@@ -275,9 +249,9 @@ export default class MascotasForm extends Component {
     sendNetworkDelete() {
 
         const formData = new FormData()
-        formData.append('codigoMascota', this.state.codigoMascota)
+        formData.append('idCita', this.state.idCita)
 
-        axios.post(baseUrl + 'api/mascota/eliminar', formData).then(response => {
+        axios.post(baseUrl + 'api/cita/eliminar', formData).then(response => {
 
             if (response.data.success == true) {
                 alert(response.data.message)
@@ -295,9 +269,9 @@ export default class MascotasForm extends Component {
     //vuelve a cargar la tabla donde se muestran
     loadData() {
 
-        axios.get(baseUrl + 'api/mascota/list').then(response => {
+        axios.get(baseUrl + 'api/cita/list').then(response => {
             this.setState({
-                mascota: response.data
+                cita: response.data
             })
         }).catch(error => {
             alert("Error " + error)
@@ -307,24 +281,23 @@ export default class MascotasForm extends Component {
 
     showModalDelete(data) {
         // id seleccionado para eliminar
-        this.setState({ codigoMascota: data.codigoMascota })
+        this.setState({ idCita: data.idCita })
         $("#exampleModalDelete").modal("show");
     }
 
     showModalEdit(data) {
         //alert("mostrar modal "+JSON.stringify(data))
         this.setState({
-            codigoMascota: data.codigoMascota,
-            razaMascota: data.razaMascota,
-            nombreMascota: data.nombreMascota,
-            birthYear: data.birthYear,
-            notas: data.notas,
+            idCita: data.idCita,
+            codigoUsuario: data.codigoUsuario,
+            fecha: data.fecha,
+            idRecibo: data.idRecibo,
             edit: true
         })
         $("#exampleModal").modal("show");
     }
 };
 
-if (document.getElementById('crud-mascotas')) {
-    ReactDOM.render(<MascotasForm/>, document.getElementById('crud-mascotas'));
+if (document.getElementById('crud-citas')) {
+    ReactDOM.render(<CitasForm/>, document.getElementById('crud-citas'));
 }

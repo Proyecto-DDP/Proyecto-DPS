@@ -69817,6 +69817,8 @@ __webpack_require__(/*! ./components/razasForm */ "./resources/js/components/raz
 
 __webpack_require__(/*! ./components/usuariosForm */ "./resources/js/components/usuariosForm.js");
 
+__webpack_require__(/*! ./components/citasForm */ "./resources/js/components/citasForm.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -69900,6 +69902,461 @@ function Example() {
 
 if (document.getElementById('example')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Example, null), document.getElementById('example'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/citasForm.js":
+/*!**********************************************!*\
+  !*** ./resources/js/components/citasForm.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CitasForm; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+var baseUrl = 'http://localhost/control-mascotas-react/public/';
+
+var CitasForm = /*#__PURE__*/function (_Component) {
+  _inherits(CitasForm, _Component);
+
+  var _super = _createSuper(CitasForm);
+
+  //constructor que inicializa las variables de la clase
+  function CitasForm(props) {
+    var _this;
+
+    _classCallCheck(this, CitasForm);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      cita: [],
+      idCita: '',
+      codigoUsuario: '',
+      fecha: '',
+      idRecibo: '',
+      edit: false
+    }; //handlers para capturar el valor de los campos cuando cambian
+
+    _this.handleChangeIdCita = _this.handleChangeIdCita.bind(_assertThisInitialized(_this));
+    _this.handleChangeCodigoUsuario = _this.handleChangeCodigoUsuario.bind(_assertThisInitialized(_this));
+    _this.handleChangeFecha = _this.handleChangeFecha.bind(_assertThisInitialized(_this));
+    _this.handleChangeRecibo = _this.handleChangeRecibo.bind(_assertThisInitialized(_this));
+    return _this;
+  } //cuando el componente se genera, hace la conexión al backend
+
+
+  _createClass(CitasForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      axios.get(baseUrl + 'api/cita/list').then(function (response) {
+        _this2.setState({
+          cita: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //render del jsx a html
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this,
+          _React$createElement;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Laravel y React APIRest"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary col-md-4",
+        "data-toggle": "modal",
+        "data-target": "#exampleModal"
+      }, "Crear producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+        className: "table table-bordered order-table "
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de cita"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Fecha de cita"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "ID de Recibo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Acciones"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+        id: "bodytable"
+      }, this.renderList())), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de citas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idCita"
+      }, "C\xF3digo de cita"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "idCita",
+        className: "form-control",
+        defaultValue: this.state.idCita,
+        onChange: this.handleChangeIdCita
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "codigoUsuario"
+      }, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "codigoUsuario",
+        className: "form-control",
+        defaultValue: this.state.codigoUsuario,
+        onChange: this.handleChangeCodigoUsuario
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "fechaCita"
+      }, "Fecha de cita"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "fechaCita",
+        className: "form-control",
+        defaultValue: this.state.fecha,
+        onChange: this.handleChangeFecha
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idRecibo"
+      }, "ID de Recibo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "idRecibo",
+        type: "text",
+        className: "form-control",
+        defaultValue: this.state.idRecibo,
+        onChange: this.handleChangeRecibo
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkCita();
+        }
+      }, "Guardar")))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModalDelete",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Eliminar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Esta seguro desea de eliminar un regsitro?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkDelete();
+        }
+      }, "Eliminar"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal fade",
+        id: "exampleModal",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "exampleModalLabel",
+        "aria-hidden": "true"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-dialog",
+        role: "document"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-content"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-header"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "modal-title",
+        id: "exampleModalLabel"
+      }, "Formulario de citas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "close",
+        "data-dismiss": "modal",
+        "aria-label": "Close"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        "aria-hidden": "true"
+      }, "\xD7"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "codigoUsuario"
+      }, "C\xF3digo de usuario"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "codigoUsuario",
+        className: "form-control",
+        defaultValue: this.state.codigoUsuario,
+        onChange: this.handleChangeCodigoUsuario
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "fechaCita"
+      }, "Fecha de cita"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        name: "fechaCita",
+        className: "form-control",
+        defaultValue: this.state.fecha,
+        onChange: this.handleChangeFecha
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        htmlFor: "idRecibo"
+      }, "ID de Recibo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", (_React$createElement = {
+        type: "number",
+        name: "idRecibo"
+      }, _defineProperty(_React$createElement, "type", "text"), _defineProperty(_React$createElement, "className", "form-control"), _defineProperty(_React$createElement, "defaultValue", this.state.idRecibo), _defineProperty(_React$createElement, "onChange", this.handleChangeRecibo), _React$createElement)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-footer"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-secondary",
+        "data-dismiss": "modal"
+      }, "Cancelar"), this.state.edit ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkUpdate();
+        }
+      }, "Actualizar") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        className: "btn btn-primary",
+        onClick: function onClick() {
+          return _this3.sendNetworkCita();
+        }
+      }, "Guardar")))))));
+    } //función que renderiza los elementos que regresen del backend
+
+  }, {
+    key: "renderList",
+    value: function renderList() {
+      var _this4 = this;
+
+      return this.state.cita.map(function (data) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.idCita), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.codigoUsuario), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.fecha), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, data.idRecibo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-info",
+          onClick: function onClick() {
+            return _this4.showModalEdit(data);
+          }
+        }, "Editar"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger",
+          onClick: function onClick() {
+            return _this4.showModalDelete(data);
+          }
+        }, "Eliminar")));
+      });
+    } //declaración de los handlers que se usan en el constructor
+
+  }, {
+    key: "handleChangeIdCita",
+    value: function handleChangeIdCita(event) {
+      this.setState({
+        idCita: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeCodigoUsuario",
+    value: function handleChangeCodigoUsuario(event) {
+      this.setState({
+        codigoUsuario: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeFecha",
+    value: function handleChangeFecha(event) {
+      this.setState({
+        fecha: event.target.value
+      });
+    }
+  }, {
+    key: "handleChangeRecibo",
+    value: function handleChangeRecibo(event) {
+      this.setState({
+        idRecibo: event.target.value
+      });
+    } //función para ingresar una nueva Cita
+
+  }, {
+    key: "sendNetworkCita",
+    value: function sendNetworkCita() {
+      var _this5 = this;
+
+      //mete los datos en un formData
+      var formData = new FormData();
+      formData.append('idCita', this.state.idCita);
+      formData.append('codigoUsuario', this.state.codigoUsuario);
+      formData.append('fecha', this.state.fecha);
+      formData.append('idRecibo', this.state.idRecibo); //pasa los datos a la ruta definida en routes>api.php
+
+      axios.post(baseUrl + 'api/cita/nuevo', formData).then(function (response) {
+        //si la respuesta es success
+        if (response.data.success == true) {
+          alert(response.data.message); // cargar datos de nuevo
+
+          _this5.loadData();
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //funcuión para editar un registro
+
+  }, {
+    key: "sendNetworkUpdate",
+    value: function sendNetworkUpdate() {
+      var _this6 = this;
+
+      var formData = new FormData();
+      formData.append('idCita', this.state.idCita);
+      formData.append('codigoUsuario', this.state.codigoUsuario);
+      formData.append('fecha', this.state.fecha);
+      formData.append('idRecibo', this.state.idRecibo);
+      axios.post(baseUrl + 'api/cita/editar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this6.loadData(); // para cerrar el modal
+
+
+          $("#exampleModal").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error 456" + error);
+      });
+    } //función para eliminar un registro
+
+  }, {
+    key: "sendNetworkDelete",
+    value: function sendNetworkDelete() {
+      var _this7 = this;
+
+      var formData = new FormData();
+      formData.append('idCita', this.state.idCita);
+      axios.post(baseUrl + 'api/cita/eliminar', formData).then(function (response) {
+        if (response.data.success == true) {
+          alert(response.data.message); // para cargar datos de nuevo
+
+          _this7.loadData(); // para cerrar el modal
+
+
+          $("#exampleModalDelete").modal("hide");
+        }
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    } //vuelve a cargar la tabla donde se muestran
+
+  }, {
+    key: "loadData",
+    value: function loadData() {
+      var _this8 = this;
+
+      axios.get(baseUrl + 'api/cita/list').then(function (response) {
+        _this8.setState({
+          cita: response.data
+        });
+      })["catch"](function (error) {
+        alert("Error " + error);
+      });
+    }
+  }, {
+    key: "showModalDelete",
+    value: function showModalDelete(data) {
+      // id seleccionado para eliminar
+      this.setState({
+        idCita: data.idCita
+      });
+      $("#exampleModalDelete").modal("show");
+    }
+  }, {
+    key: "showModalEdit",
+    value: function showModalEdit(data) {
+      //alert("mostrar modal "+JSON.stringify(data))
+      this.setState({
+        idCita: data.idCita,
+        codigoUsuario: data.codigoUsuario,
+        fecha: data.fecha,
+        idRecibo: data.idRecibo,
+        edit: true
+      });
+      $("#exampleModal").modal("show");
+    }
+  }]);
+
+  return CitasForm;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+
+;
+
+if (document.getElementById('crud-citas')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(CitasForm, null), document.getElementById('crud-citas'));
 }
 
 /***/ }),
